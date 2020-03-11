@@ -1,0 +1,77 @@
+<ion-content padding>
+  <ion-fab top left>
+    <button ion-fab color="doc" (click)="back()">
+      <ion-icon ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-card>
+
+    <ion-card-header text-center>
+      Sign Up
+    </ion-card-header>
+
+    <ion-card-content>
+      <form [formGroup]="formgroup">
+        <ion-list>
+
+          <ion-item class="kk">
+            <ion-label>
+              <ion-icon name="person"></ion-icon>&nbsp;&nbsp;&nbsp;Username:
+            </ion-label>
+            <ion-input type="text" formControlName="cname" [(ngModel)]="name1"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="cname.hasError('required') && cname.touched">
+            <p class="err"><b>Name Is Required</b></p>
+          </ion-item>
+          <ion-item *ngIf="formgroup.controls.cname.hasError('pattern') && formgroup.controls.cname.touched">
+            <p class="err"><b>Name Should Only have Alphabets</b></p>
+          </ion-item>
+
+
+          <ion-item class="kt">
+            <ion-label>
+              <ion-icon name="mail"></ion-icon>&nbsp;&nbsp;&nbsp;Email :
+            </ion-label>
+            <ion-input type="Email" formControlName="mail" [(ngModel)]="email1"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="mail.hasError('required') && mail.touched" class="pp">
+            <p class="err"><b>Email Is Required</b></p>
+          </ion-item>
+          <ion-item *ngIf="mail.hasError('pattern') && mail.touched" class="pp">
+            <p class="err"><b>Email Is InInvalid</b></p>
+          </ion-item>
+
+
+
+
+          <ion-item class="kl">
+            <ion-label>
+              <ion-icon name="card"></ion-icon>&nbsp;&nbsp;&nbsp;Password :
+            </ion-label>
+            <ion-input type="password" formControlName="pass" [(ngModel)]="pass1"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="pass.hasError('required') && pass.touched" class="pp">
+            <p class="err"><b>Password Is Required</b></p>
+          </ion-item>
+          <ion-item *ngIf="formgroup.controls.pass.hasError('minlength') && formgroup.controls.pass.touched" class="pp">
+            <p class="err"><b>Password Should not be less the 6</b></p>
+          </ion-item>
+          <ion-item *ngIf="formgroup.controls.pass.hasError('pattern') && formgroup.controls.pass.touched" class="pp">
+            <p class="err"><b>Password Should Have Numbers and Alphabets only</b></p>
+          </ion-item>
+
+
+
+          <div padding>
+            <button id="b2" ion-button block (click)="insertdata()" [disabled]="!formgroup.valid">Enter Details</button>
+            <button id="b3" ion-button block color="primary" type="Reset">Reset</button>
+          </div>
+
+
+
+        </ion-list>
+      </form>
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>

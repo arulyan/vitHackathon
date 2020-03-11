@@ -1,0 +1,67 @@
+<!--
+  Generated template for the ShoppingListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Today's Suspects</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="Logout()">
+        <ion-icon ios="ios-log-out" md="md-log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <ion-list>
+    <ion-item *ngFor="let item of shoppingListRef$ | async">
+      <h2>Id:{{item.itemName}}</h2>
+      <h3>Time:{{item.itemNumber}}pm</h3>
+    </ion-item>
+  </ion-list> -->
+  <ion-list>
+    <ion-card class="card-3" *ngFor="let item of shoppingListRef$ | async;"
+      (click)="showUnkown(item.itemName)">
+      <ion-card-content>
+        <ion-grid class="gridLock">
+          <ion-row class="gridRow">
+            <ion-col col-3 class="dater">
+              <h2 class="cardh">{{item.itemName}}</h2>
+            </ion-col>
+            <ion-col col-6>
+              <h2 class="cardh dater1">Time:{{item.itemNumber}}pm</h2>
+            </ion-col>
+            <ion-col col-3 class="dater1">
+              <ion-icon name="clock"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
+
+
+<!-- <ion-list>
+  <ion-card class="card-3" *ngFor="let item of shoppingListRef$ | async"
+    (click)="showUserDetails(appoi.email,appoi.time)">
+    <ion-card-content>
+      <ion-grid class="gridLock">
+        <ion-row class="gridRow">
+          <ion-col col-4 class="dater">
+            <h2 class="cardh">{{item.itemName}}</h2>
+          </ion-col>
+          <ion-col col-6>
+            <h2 class="cardh dater1">{{item.itemNumber}}</h2>
+          </ion-col>
+          <ion-col col-2 class="dater1">
+            <ion-icon name="clock"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-list> -->
